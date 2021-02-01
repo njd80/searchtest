@@ -2,11 +2,11 @@
 
 const searchClient = algoliasearch(
   'UH8HNBNRQ2',
-  '6be0576ff61c053d5f9a3225e2a90f76'
+  '4f7cf589ae086d261cee206a06da4b4c'
 );
 
 const search = instantsearch({
-  indexName: 'instant_search',
+  indexName: 'test-ecom',
   searchClient,
 });
 
@@ -14,16 +14,31 @@ search.addWidgets([
   instantsearch.widgets.searchBox({
     container: '#searchbox',
   }),
+  instantsearch.widgets.clearRefinements({
+    container: '#clear-refinements',
+  }),
+  instantsearch.widgets.refinementList({
+    container: '#brand-list',
+    attribute: 'brand',
+  }),
+  instantsearch.widgets.configure({
+    hitsPerPage: 4
+  }),
   instantsearch.widgets.hits({
     container: '#hits',
     templates: {
       item: `
-<article>
-  <h1>{{#helpers.highlight}}{ "attribute": "title" }{{/helpers.highlight}}</h1>
-  <p>{{#helpers.highlight}}{ "attribute": "name" }{{/helpers.highlight}}</p>
-  <p>{{#helpers.highlight}}{ "attribute": "description" }{{/helpers.highlight}}</p>
-</article>
-`,
+        <div>
+          <img src="{{image}}" align="left" alt="{{name}}" />
+          <div class="hit-name">
+            {{#helpers.highlight}}{ "attribute": "name" }{{/helpers.highlight}}
+          </div>
+          <div class="hit-description">
+            {{#helpers.highlight}}{ "attribute": "description" }{{/helpers.highlight}}
+          </div>
+          <div class="hit-price">\${{price}}</div>
+        </div>
+      `,
     },
   }),
   instantsearch.widgets.pagination({
