@@ -9,9 +9,9 @@ Then I configured the basic relevance settings using https://www.algolia.com/doc
 ## Configuration
 
 ### Searchable Attributes
-  Name
-  Description
-  Brand
+  # Name
+  # Description
+  # Brand
   
   All are ordered to ensure that relevance is given to each match in order.
   
