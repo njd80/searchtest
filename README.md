@@ -36,10 +36,4 @@ Even once installed I could not get it to work in that format. Results in the de
 So - working interface but is using the default API key details. Results look similar so potential for major confusion.
 
 Prerequisites/before you start section on InstantSearch would avoid the confusion.
-
-2 paragraphs cover instantsearch app installation and module installation
-they come after the create command - wrong
-
-
-
-
+There are 2 paragraphs that cover instantsearch app installation and module installation, but they are after the "create" command. Move them before and the steps make sense.
